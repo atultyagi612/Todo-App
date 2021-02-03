@@ -1,7 +1,7 @@
-# TODO-App
-A Todo app using Nodejs , express , mangodb , googleauth
+# To-do App
+A To-do app using Nodejs , express , mangodb , googleauth
 
-This repository contains code for TODO-App using Nodejs , express , mangodb , googleauth
+This repository contains code for To-do App using Nodejs , express , mangodb , googleauth
 
 Technology used : -Nodejs -express 
 
