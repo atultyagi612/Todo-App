@@ -21,4 +21,6 @@ path
 ```
 
 # Demo
+fill the Todo-App/config/config.env with MONGO_URI , GOOGLE_CLIENT_ID , GOOGLE_CLIENT_SECRET and then 
 Run by ``` npm run dev  ```
+[VIEW DEMO](todo-appes.herokuapp.com)
