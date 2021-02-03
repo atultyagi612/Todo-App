@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo app</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <style>
+        .hov:hover {
+            background-color: rgb(201, 193, 209);
+        }
+
+        .basicstyle {
+            cursor: pointer;
+        }
+
+        .logo {
+            border-radius: 64px;
+            height: 38px;
+        }
+        .libasic {
+            display: flex;
+            justify-content: space-between;
+            font-family: sans-serif;
+            font-size:1.2rem;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <!-- As a link -->
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><img class="logo" src=<%=userinfo.image %> alt=""> &nbsp; <%=
+                    userinfo.firstName %>'s To-do</a>
+            <a class="navbar-brand btn btn-danger btn-small" style="color: white;" href="/auth/logout">Logout</a>
+        </div>
+    </nav>
+
+
+    <div class="container mt-5 ">
+        <form action="/add/todo" class="d-flex" method="POST">
+            <input type="text" name="todo" class="form-control" placeholder="Enter Todo">
+            <input type="submit" value="Add" class="btn btn-md btn-primary mx-3">
+        </form>
+
+        <ul class="list-group mt-5 ">
+            <% todo.forEach(todos=>{ %>
+
+                <li class="list-group-item hov libasic" 
+                <% if(todos.done==1) 
+                { %>style=" background-color: #accec6 ; text-decoration: line-through;"
+                <% } %> >
+                    <%= todos.todo %>
+
+                    <span>
+
+                        <% if(todos.done==0) 
+                        { %> <a href="/update/todo/<%=todos._id%>" class="btn btn-success btn-small" style="margin-right:0px">Done</a>
+                        <% } %>
+                        
+                        <a href="/delete/todo/<%=todos._id%>" class="btn btn-danger btn-small">Delete</a>
+                    </span>
+                </li>
+
+                <% }) %>
+        </ul>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    <script src="ejs.min.js"></script>
+</body>
+
+</html>
